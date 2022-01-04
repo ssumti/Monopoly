@@ -1,0 +1,1276 @@
+﻿<Window x:Class="Monopoly.Views.GameVsBot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.Views"
+        xmlns:z="clr-namespace:Monopoly.ViewModels"
+        mc:Ignorable="d"
+        Title="GameVsBot" Height="700" Width="1400"
+        WindowState="Maximized"
+        WindowStyle="None"
+        x:Name="window">
+    <!--<Window.DataContext>
+        <z:GameWithBotViewModel />
+    </Window.DataContext>-->
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Monopoly;component/Resources/option.jpg"/>
+        </Canvas.Background>
+        <!--<Rectangle Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[0].TopMap}"
+                   Canvas.Left="{Binding map[0].LeftMap}" Fill="Black"/>-->
+        <Border Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[0].TopMap}"
+                   Canvas.Left="{Binding map[0].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <TextBlock Text="Begin" FontSize="20" FontWeight="Bold"
+                       FontFamily="Ink Free"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"/>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[1].TopMap}"
+                   Canvas.Left="{Binding map[1].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[1].TopMap}"
+                Canvas.Left="{Binding map[1].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[1].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[1].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[1].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[2].TopMap}"
+                   Canvas.Left="{Binding map[2].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[2].TopMap}"
+                   Canvas.Left="{Binding map[2].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Reward Chest" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+               
+            </StackPanel>
+        </Border>
+
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[3].TopMap}"
+                   Canvas.Left="{Binding map[3].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[3].TopMap}"
+                   Canvas.Left="{Binding map[3].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[3].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[3].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[3].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[4].TopMap}"
+                   Canvas.Left="{Binding map[4].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[4].TopMap}"
+                   Canvas.Left="{Binding map[4].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[4].tax.Content}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[4].tax.TaxMoney}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[5].TopMap}"
+                   Canvas.Left="{Binding map[5].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[5].TopMap}"
+                   Canvas.Left="{Binding map[5].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[5].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[5].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[5].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[6].TopMap}"
+                   Canvas.Left="{Binding map[6].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[6].TopMap}"
+                   Canvas.Left="{Binding map[6].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[6].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[6].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[6].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[7].TopMap}"
+                   Canvas.Left="{Binding map[7].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[7].TopMap}"
+                   Canvas.Left="{Binding map[7].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Chances" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+
+            </StackPanel>
+        </Border>
+
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[8].TopMap}"
+                   Canvas.Left="{Binding map[8].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[8].TopMap}"
+                   Canvas.Left="{Binding map[8].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[8].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[8].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[8].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[9].TopMap}"
+                   Canvas.Left="{Binding map[9].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[9].TopMap}"
+                   Canvas.Left="{Binding map[9].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[9].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[9].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[9].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+
+        <!--<Rectangle Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[10].TopMap}"
+                   Canvas.Left="{Binding map[10].LeftMap}" Fill="Black"/>-->
+        <Border Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[10].TopMap}"
+                   Canvas.Left="{Binding map[10].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <TextBlock Text="Jail" FontSize="20" FontWeight="Bold"
+                       FontFamily="Ink Free"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"/>
+        </Border>
+        
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[11].TopMap}"
+                   Canvas.Left="{Binding map[11].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[11].TopMap}"
+                   Canvas.Left="{Binding map[11].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[11].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[11].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[11].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[12].TopMap}"
+                   Canvas.Left="{Binding map[12].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[12].TopMap}"
+                   Canvas.Left="{Binding map[12].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[12].tax.Content}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[12].tax.TaxMoney}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[13].TopMap}"
+                   Canvas.Left="{Binding map[13].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[13].TopMap}"
+                   Canvas.Left="{Binding map[13].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[13].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[13].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[13].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[14].TopMap}"
+                   Canvas.Left="{Binding map[14].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[14].TopMap}"
+                   Canvas.Left="{Binding map[14].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[14].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[14].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[14].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[15].TopMap}"
+                   Canvas.Left="{Binding map[15].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[15].TopMap}"
+                   Canvas.Left="{Binding map[15].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[15].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[15].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[15].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[16].TopMap}"
+                   Canvas.Left="{Binding map[16].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[16].TopMap}"
+                   Canvas.Left="{Binding map[16].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[16].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[16].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[16].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[17].TopMap}"
+                   Canvas.Left="{Binding map[17].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[17].TopMap}"
+                   Canvas.Left="{Binding map[17].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Reward Chest" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+
+            </StackPanel>
+        </Border>
+
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[18].TopMap}"
+                   Canvas.Left="{Binding map[18].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[18].TopMap}"
+                   Canvas.Left="{Binding map[18].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[18].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[18].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[18].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[19].TopMap}"
+                   Canvas.Left="{Binding map[19].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[19].TopMap}"
+                   Canvas.Left="{Binding map[19].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[19].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[19].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[19].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+
+        <!--<Rectangle Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[20].TopMap}"
+                   Canvas.Left="{Binding map[20].LeftMap}" Fill="Black"/>-->
+        <Border Height="100"
+                Width="100"
+                Canvas.Top="{Binding map[20].TopMap}"
+                   Canvas.Left="{Binding map[20].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[20].tax.Content}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[20].tax.TaxMoney}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[21].TopMap}"
+                   Canvas.Left="{Binding map[21].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[21].TopMap}"
+                   Canvas.Left="{Binding map[21].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[21].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[21].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[21].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[22].TopMap}"
+                   Canvas.Left="{Binding map[22].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[22].TopMap}"
+                   Canvas.Left="{Binding map[22].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Chances" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+
+            </StackPanel>
+        </Border>
+
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[23].TopMap}"
+                   Canvas.Left="{Binding map[23].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[23].TopMap}"
+                   Canvas.Left="{Binding map[23].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[23].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[23].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[23].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[24].TopMap}"
+                   Canvas.Left="{Binding map[24].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[24].TopMap}"
+                   Canvas.Left="{Binding map[24].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[24].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[24].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[24].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[25].TopMap}"
+                   Canvas.Left="{Binding map[25].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[25].TopMap}"
+                   Canvas.Left="{Binding map[25].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[25].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[25].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[25].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[26].TopMap}"
+                   Canvas.Left="{Binding map[26].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[26].TopMap}"
+                   Canvas.Left="{Binding map[26].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[26].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[26].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[26].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[27].TopMap}"
+                   Canvas.Left="{Binding map[27].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[27].TopMap}"
+                   Canvas.Left="{Binding map[27].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[27].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[27].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[27].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[28].TopMap}"
+                   Canvas.Left="{Binding map[28].LeftMap}" Fill="Pink"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[28].TopMap}"
+                   Canvas.Left="{Binding map[28].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[28].tax.Content}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[28].tax.TaxMoney}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="70"
+                   Canvas.Top="{Binding map[29].TopMap}"
+                   Canvas.Left="{Binding map[29].LeftMap}" Fill="Blue"/>-->
+        <Border Height="100"
+                Width="70"
+                Canvas.Top="{Binding map[29].TopMap}"
+                   Canvas.Left="{Binding map[29].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[29].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[29].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[29].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[30].TopMap}"
+                   Canvas.Left="{Binding map[30].LeftMap}" Fill="Black"/>-->
+        <Border Height="100"
+                   Width="100"
+                   Canvas.Top="{Binding map[30].TopMap}"
+                   Canvas.Left="{Binding map[30].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <TextBlock Text="Go To Jail" FontSize="20" FontWeight="Bold"
+                       FontFamily="Ink Free"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"/>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[31].TopMap}"
+                   Canvas.Left="{Binding map[31].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[31].TopMap}"
+                   Canvas.Left="{Binding map[31].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[31].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[31].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[31].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[32].TopMap}"
+                   Canvas.Left="{Binding map[32].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[32].TopMap}"
+                   Canvas.Left="{Binding map[32].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[32].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[32].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[32].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[33].TopMap}"
+                   Canvas.Left="{Binding map[33].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[33].TopMap}"
+                   Canvas.Left="{Binding map[33].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Reward Chest" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[34].TopMap}"
+                   Canvas.Left="{Binding map[34].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[34].TopMap}"
+                   Canvas.Left="{Binding map[34].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[34].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[34].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[34].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[35].TopMap}"
+                   Canvas.Left="{Binding map[35].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[35].TopMap}"
+                   Canvas.Left="{Binding map[35].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[35].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[35].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[35].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[36].TopMap}"
+                   Canvas.Left="{Binding map[36].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[36].TopMap}"
+                   Canvas.Left="{Binding map[36].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Chances" FontSize="11" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[37].TopMap}"
+                   Canvas.Left="{Binding map[37].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[37].TopMap}"
+                   Canvas.Left="{Binding map[37].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[37].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[37].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[37].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[38].TopMap}"
+                   Canvas.Left="{Binding map[38].LeftMap}" Fill="Pink"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[38].TopMap}"
+                   Canvas.Left="{Binding map[38].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[38].tax.Content}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[38].tax.TaxMoney}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!--<Rectangle Height="70"
+                   Width="100"
+                   Canvas.Top="{Binding map[39].TopMap}"
+                   Canvas.Left="{Binding map[39].LeftMap}" Fill="Blue"/>-->
+        <Border Height="70"
+                Width="100"
+                Canvas.Top="{Binding map[39].TopMap}"
+                   Canvas.Left="{Binding map[39].LeftMap}"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MapTile[39].realEstate.Name}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding MapTile[39].realEstate.BuyPrice}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="$" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="(" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text="{Binding MapTile[39].Owner}" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                    <TextBlock Text=")" FontSize="12.5" FontWeight="Bold"
+                       FontFamily="Ink Free"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <StackPanel Orientation="Horizontal"
+                    Canvas.Top="0"
+                    Canvas.Left="0">
+            <TextBlock Text="Time: " FontSize="30" FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+            <TextBlock Text="{Binding CountDown}" FontSize="30" FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Canvas.Top="350"
+                    Canvas.Left="0">
+            <TextBlock Text="Turn: " FontSize="40" FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+            <TextBlock Text="{Binding PlayerTurn}" FontSize="40" FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+        </StackPanel>
+
+        <Border BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="10"
+                Canvas.Top="0"
+                Canvas.Left="{Binding PlayerDisplay.LeftMap}">
+            <StackPanel Canvas.Top="0"
+                    Canvas.Left="{Binding PlayerDisplay.LeftMap}"
+                    Height="150"
+                    Width="{Binding PlayerDisplayWidth}">
+                <Image Source="{Binding InGames[0].Avatar}" Height="80"/>
+                <TextBlock Text="{Binding InGames[0].Name}" 
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding InGames[0].Property}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                    <TextBlock Text="   -   " FontSize="30"/>
+                    <TextBlock Text="{Binding InGames[0].NumberOfHotel}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="10"
+                Canvas.Top="160"
+                Canvas.Left="{Binding PlayerDisplay.LeftMap}">
+            <StackPanel Canvas.Top="160"
+                    Canvas.Left="{Binding PlayerDisplay.LeftMap}"
+                    Height="150"
+                    Width="{Binding PlayerDisplayWidth}">
+                <Image Source="{Binding InGames[1].Avatar}" Height="80"/>
+                <TextBlock Text="{Binding InGames[1].Name}" 
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding InGames[1].Property}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                    <TextBlock Text="   -   " FontSize="30"/>
+                    <TextBlock Text="{Binding InGames[1].NumberOfHotel}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="10"
+                Canvas.Top="320"
+                Canvas.Left="{Binding PlayerDisplay.LeftMap}">
+            <StackPanel Canvas.Top="320"
+                    Canvas.Left="{Binding PlayerDisplay.LeftMap}"
+                    Height="150"
+                    Width="{Binding PlayerDisplayWidth}">
+                <Image Source="{Binding InGames[2].Avatar}" Height="80"/>
+                <TextBlock Text="{Binding InGames[2].Name}" 
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding InGames[2].Property}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                    <TextBlock Text="   -   " FontSize="30"/>
+                    <TextBlock Text="{Binding InGames[2].NumberOfHotel}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="10"
+                Canvas.Top="480"
+                Canvas.Left="{Binding PlayerDisplay.LeftMap}">
+            <StackPanel Canvas.Top="480"
+                    Canvas.Left="{Binding PlayerDisplay.LeftMap}"
+                    Height="150"
+                    Width="{Binding PlayerDisplayWidth}">
+
+                <Image Source="{Binding InGames[3].Avatar}" Height="80"/>
+                <TextBlock Text="{Binding InGames[3].Name}" 
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding InGames[3].Property}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                    <TextBlock Text="   -   " FontSize="30"/>
+                    <TextBlock Text="{Binding InGames[3].NumberOfHotel}" FontSize="30"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Image Source="{Binding ChancesBoxImg}"
+               Height="150"
+               Canvas.Top="{Binding ChancesBox.TopMap}"
+               Canvas.Left="{Binding ChancesBox.LeftMap}"/>
+        
+        <Image Source="{Binding RewardBoxImg}"
+               Height="150"
+               Canvas.Top="{Binding RewardBox.TopMap}"
+               Canvas.Left="{Binding RewardBox.LeftMap}"/>
+        <Button Height="120"
+                Width="120"
+                Canvas.Top="{Binding Dice.TopMap}"
+                Canvas.Left="{Binding Dice.LeftMap}"
+                Command="{Binding ThrowDice}">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Monopoly;component/Resources/dice.png"/>
+            </Button.Background>
+        </Button>
+        <StackPanel Orientation="Horizontal"
+                    Canvas.Top="450"
+                    Canvas.Left="0">
+            <TextBlock Text="{Binding currentPlayer.Name}" FontSize="40"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+            <TextBlock Text=" have rolled a  " FontSize="40"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+            <TextBlock Text="{Binding Steps}" FontSize="40"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Canvas.Left="0"
+                    Canvas.Top="500">
+            <ScrollViewer
+                    Height="200"
+                    Width="300">
+                <StackPanel
+                    Height="200"
+                    Width="300">
+                    <ListView ItemsSource="{Binding GameMessages}"
+                              Height="200"
+                                Width="290"
+                              Background="Transparent">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="Game Master: " FontSize="20" FontFamily="Ink Free"
+                                               FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding}" FontSize="20" FontFamily="Ink Free"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        
+        <StackPanel Canvas.Top="{Binding InGames[0].TopMap}" 
+               Canvas.Left="{Binding InGames[0].LeftMap}">
+            <Image Source="{Binding InGames[0].Avatar}" Width="30" Height="30"/>
+            <TextBlock Text="{Binding InGames[0].Name}" FontSize="15"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"
+                       Foreground="Red"/>
+        </StackPanel>
+
+        <StackPanel Canvas.Top="{Binding InGames[1].TopMap}" 
+               Canvas.Left="{Binding InGames[1].LeftMap}">
+            <Image Source="{Binding InGames[1].Avatar}" Width="30" Height="30"/>
+            <TextBlock Text="{Binding InGames[1].Name}" FontSize="15"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"
+                       Foreground="Yellow"/>
+        </StackPanel>
+
+        <StackPanel Canvas.Top="{Binding InGames[2].TopMap}" 
+               Canvas.Left="{Binding InGames[2].LeftMap}">
+            <Image Source="{Binding InGames[2].Avatar}" Width="30" Height="30"/>
+            <TextBlock Text="{Binding InGames[2].Name}" FontSize="15"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"
+                       Foreground="Green"/>
+        </StackPanel>
+
+        <StackPanel Canvas.Top="{Binding InGames[3].TopMap}" 
+               Canvas.Left="{Binding InGames[3].LeftMap}">
+            <Image Source="{Binding InGames[3].Avatar}" Width="30" Height="30"/>
+            <TextBlock Text="{Binding InGames[3].Name}" FontSize="15"
+                       FontFamily="Ink Free"
+                       FontWeight="Bold"
+                       Foreground="Purple"/>
+        </StackPanel>
+    </Canvas>
+</Window>

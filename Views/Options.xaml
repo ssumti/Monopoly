@@ -1,0 +1,66 @@
+﻿<Window x:Class="Monopoly.Views.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.Views"
+        xmlns:z="clr-namespace:Monopoly.ViewModels"
+        mc:Ignorable="d"
+        Title="Options"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Height="700" Width="1400"
+        x:Name="window">
+    <Window.DataContext>
+        <z:OptionsViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Monopoly;component/Resources/option.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Button Height="300"
+                   Width="300"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                    Background="{StaticResource color_crema}"
+                Margin="0,80,0,0"
+                Command="{Binding BotModeClicked}"
+                CommandParameter="{Binding ElementName=window}">
+            <Label Foreground="Black"
+                   FontWeight="Bold"
+                   FontFamily="Ink Free"
+                   FontSize="40">BOT MODE</Label>
+        </Button>
+        <Button Height="300"
+                   Width="300"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Background="{StaticResource color_crema}"
+                Margin="0,80,0,0">
+            <Label Foreground="Black"
+                   FontWeight="Bold"
+                   FontFamily="Ink Free"
+                   FontSize="40">PVP MODE</Label>
+        </Button>
+        <TextBlock Text="PLEASE CHOOSE YOUR GAME MODE" FontSize="30"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Margin="0,100,0,0"
+                   Foreground="Black"
+                   FontWeight="Bold"
+                   FontFamily="Ink Free"/>
+    </Grid>
+</Window>

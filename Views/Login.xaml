@@ -1,0 +1,100 @@
+﻿<Window x:Class="Monopoly.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.Views"
+        xmlns:z="clr-namespace:Monopoly.ViewModels"
+        mc:Ignorable="d"
+        Title="Login" Height="800" Width="500"
+        WindowStartupLocation="CenterScreen"
+        x:Name="window">
+    <Window.DataContext>
+        <z:LoginViewModel/>
+    </Window.DataContext>
+    <StackPanel Background="#e6e6e6">
+        <Grid>
+            <Border Padding="0">
+                <StackPanel Margin="0">
+                    <Border Height="150" Background="#fad0c4" Padding="0" Margin="0">
+                        <Label Content="Welcome to Monopoly" Foreground="Black"
+                                   FontWeight="Bold" FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,20,0,0"
+                               FontFamily="Ink Free"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Margin="10,100,10,0">
+                <Border Background="White" Height="500" CornerRadius="20">
+                    <StackPanel>
+                        <StackPanel Margin="10">
+                            <Label Content="Log in" FontFamily="Ink Free" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="15,10">
+                            <Border Background="Transparent" BorderBrush="DarkGray"
+                                    CornerRadius="30" BorderThickness="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Background="SkyBlue" Height="40" Width="40"
+                                            CornerRadius="30" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png">
+                                            <Image.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="30"/>
+                                                </Style>
+                                            </Image.Resources>
+                                        </Image>
+                                    </Border>
+                                    <TextBox FontSize="25" Width="383" Text="{Binding Username, NotifyOnTargetUpdated=True}">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="30"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="Transparent" BorderBrush="DarkGray"
+                                    CornerRadius="30" BorderThickness="2"
+                                    Margin="0,50,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Background="SkyBlue" Height="40" Width="40"
+                                            CornerRadius="30" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg"/>
+                                    </Border>
+                                    <TextBox FontSize="25" Width="383" Text="{Binding Password}">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="30"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                            
+                        </StackPanel>
+                        <Button Content="Login"
+                                    FontSize="12"
+                                    HorizontalAlignment="Right"
+                                    FontFamily="Bold"
+                                    Background="{StaticResource color_crema}"
+                                    Height="40"
+                                    Width="150"
+                                    Margin="0,50,50,0"
+                                Command="{Binding LoginPressed}"
+                                CommandParameter="{Binding ElementName=window}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="23"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

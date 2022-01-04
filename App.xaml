@@ -1,0 +1,17 @@
+﻿<Application x:Class="Monopoly.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Monopoly"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="color_crema">#F7F5F0</SolidColorBrush>
+            <SolidColorBrush x:Key="color_yellow">#F4C560</SolidColorBrush>
+            <SolidColorBrush x:Key="color_white">#FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="color_black">#000000</SolidColorBrush>
+            <SolidColorBrush x:Key="color_gray">#BBBBBB</SolidColorBrush>
+            <SolidColorBrush x:Key="color_darkgray">#151716</SolidColorBrush>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
